@@ -1,9 +1,13 @@
 {
   "name": "ottr",
   "version": "0.0.0",
+  "engines": {
+    "node": ">=12.11.0 <=14.21.3"
+  },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "ng serve --port 4200 -o",
+    "start:legacy": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve --port 4200 -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
