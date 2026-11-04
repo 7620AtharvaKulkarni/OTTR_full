@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <RollForward>LatestMajor</RollForward>
-    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <UserSecretsId>bdcc6cc1-c492-47ca-8380-fcb99c675040</UserSecretsId>
   </PropertyGroup>
 

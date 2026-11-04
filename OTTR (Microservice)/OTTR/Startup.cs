@@ -139,8 +139,6 @@ namespace OTTR
 
             app.UseStaticFiles();
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
             app.UseCors("AllowAngularApp");
 
@@ -149,6 +147,11 @@ namespace OTTR
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapGet("/", context =>
+                {
+                    context.Response.Redirect("/swagger");
+                    return Task.CompletedTask;
+                });
             });
 
             loggerFactory.AddFile("Logs/OTTR-{Date}.log");
