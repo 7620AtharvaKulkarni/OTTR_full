@@ -1,0 +1,40 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "OTTRDBConnection": "Server=10.120.3.38;Initial Catalog=GESHPS;Integrated Security=False;Persist Security Info=False;user id=sql_Custom;password=Cu$tOM@10.120.3.38_QA;MultipleActiveResultSets=true"
+   // "OTTRDBConnection": "Data Source=10.120.0.14;Initial Catalog=GESHPS;Integrated Security=False;Persist Security Info=False;user id=custom;password=Cu$tOM@10.120.0.14_PROD"
+  },
+  "DownloadFilesPath": "c:\\test",
+  "MaliciousFileValidationAPI":"https://ssappsqa.honeywell.com/GESExcellence/SecurityManager/MaliciousFileValidatorService/api/MaliciousFileValidation",
+  "RequestProcessorConfig": {
+    "EndPointURL": "http://localhost:61788/RequestProcessor",
+    "SecretKey": "wEuaozgYgWDhc4j2BvnT",
+    "AccessControlName": "Security",
+    "EmailNotificationName": "EmailNotification",
+    "EmailCron1": "0 0 * * *",
+    "EmailCron": "*/2 * * * *",
+    "GetUserInfoEndPoint": "/api/employee/",
+    "GetUserInfoByRoleEndPoint": "/api/UserRole/search",
+    "EmailNotificationEndPoint": "/api/Email/SendMail",
+    "LINK": "QA",
+    "DeclineRequesrDays": "30",
+    "NumberOfDaysBeforeEmailToSent": "7",
+    "AutoMailSenderEmailID": "",
+    "DateOverOttrMessage": "This is a reminder to update actual date for below projects since the planned date is  already over. Request you to update the Actual Date ASAP by logging into the OTTR tool.",
+    "UpcomingOttrMessage": "This is a reminder to update actual date  for below projects since the planned date is due in upcoming days. Request you to update details on time in OTTR Tool.",
+    "Subject": "OTTR Status"
+  },
+  "PeopleSoftApiConfig": {
+    "PeopleSoftApiclientSecret": "VtX4MDoh72iqIGVk",
+    "PeopleSoftApiClientId": "8vA5IAT1zUdI3N6Zziiv4gGKRxbaLo8p"
+  }
+  
+
+}

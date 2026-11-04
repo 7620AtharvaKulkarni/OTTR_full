@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using OTTR.Models;
+using OTTR.Repositories;
+using OTTR.Services;
+using Newtonsoft.Json.Linq;
+using Microsoft.AspNetCore.Http.Features;
+
+namespace OTTR
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+        public IConfiguration Configuration { get; }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("OTTRDBConnection")));
+            services.AddCors(o => o.AddPolicy(MyAllowSpecificOrigins, builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+            string cronexp;
+            Configuration.GetSection("RequestProcessorConfig").Get<Dictionary<string, string>>().TryGetValue("EmailCron", out cronexp);
+            services.AddCronJob<EmailNotificationCron>(c =>
+            {
+                c.TimeZoneInfo = TimeZoneInfo.Local;
+                c.CronExpression = cronexp;
+            });
+
+            //for deployment on server 
+            services.Configure<IISOptions>(options =>
+            {
+                options.AutomaticAuthentication = false;
+            });
+
+            services.Configure<FormOptions>(options =>
+            {
+                options.ValueLengthLimit = int.MaxValue;
+                options.MultipartBodyLengthLimit = long.MaxValue; // <-- ! long.MaxValue
+                options.MultipartBoundaryLengthLimit = int.MaxValue;
+                options.MultipartHeadersCountLimit = int.MaxValue;
+                options.MultipartHeadersLengthLimit = int.MaxValue;
+            });
+
+            services.AddControllers();
+            services.AddMvc().AddNewtonsoftJson();
+            services.AddScoped<IOttrMonitoringRepository, OttrMonitoringRepository>();
+            services.AddScoped<IEmailNotificationService, EmailNotificationService>();
+            services.AddScoped<IRegionRepository, RegionRepository>();
+            services.AddScoped<IGESGroupRepository, GESGroupRepository>();
+            services.AddScoped<IAttributeToRepository, AttributeToRepository>();
+            services.AddScoped<IInternalExternalAttributeToRepository, InternalExternalAttributeToRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IGESGroupProductMappingRepository, GESGroupProductMappingRepository>();
+            services.AddScoped<IAuditOttrMonitoringRepository, AuditOttrMonitoringRepository>();
+            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<ICountryService, CountryService>();
+            services.AddScoped<IPoleRepository, PoleRepository>();
+            services.AddScoped<IPoleService, PoleService>();
+            services.AddScoped<IRegionCountryMappingService, RegionCountryMappingService>();
+            services.AddScoped<IRegionCountryMappingRepository, RegionCountryMappingRepository>();
+            services.AddScoped<IGesgroupdeliveryRepository, GesgroupdeliveryRepository>();
+            services.AddScoped<IGesgroupdeliveryService, GesgroupdeliveryService>();
+            services.AddScoped<IOttrMonitoringService, OttrMonitoringService>();
+            services.AddScoped<IRegionService, RegionService>();
+            services.AddScoped<IGESGroupService, GESGroupService>();
+            services.AddScoped<IAttributeToService, AttributeToService>();
+            services.AddScoped<IInternalExternalAttributeToService, InternalExternalAttributeToService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IFileUploadService, FileUploadService>();
+            services.AddScoped<IGESGroupProductMappingService, GESGroupProductMappingService>();
+            services.AddScoped<IAuditOttrMonitoringService, AuditOttrMonitoringService>();
+            services.AddScoped<IExcelFileGenerator, ExcelFileGenerator>();
+        }
+
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            var policyCollection = new HeaderPolicyCollection()
+                .AddDefaultSecurityHeaders()
+                .AddCustomHeader("Cache-control", "no-store")
+                .AddCustomHeader("Pragma", "no-cache")
+                .RemoveServerHeader();
+
+            app.UseSecurityHeaders(policyCollection);
+
+            app.UseStaticFiles();
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseCors(MyAllowSpecificOrigins);
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            loggerFactory.AddFile("Logs/OTTR-{Date}.log");
+        }
+    }
+}

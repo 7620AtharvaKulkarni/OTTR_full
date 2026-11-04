@@ -1,0 +1,33 @@
+.btn-sm {
+  padding: 10px !important;
+  border-radius: 5px !important;
+  width: 70px !important;
+}
+
+.close:focus,
+.close:hover {
+  outline: none;
+}
+
+.modal-title {
+  font-weight: 800 !important;  
+}
+
+.title-header-ottr{
+  font-size: 16px !important;
+}
+
+::ng-deep.modal-header {
+  padding: 0px !important;
+  padding-bottom: 20px !important;  
+  font-family: HoneywellSansWeb-Bold !important;
+}
+::ng-deep.modal-footer {
+  padding: 0px !important;
+}
+::ng-deep.mat-dialog-container {
+  padding: 15px !important;
+  padding-bottom: 5px !important;
+   max-height: 100vh !important;
+   overflow-y: hidden;
+}

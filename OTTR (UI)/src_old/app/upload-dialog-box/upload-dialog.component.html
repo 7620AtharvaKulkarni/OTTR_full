@@ -1,0 +1,17 @@
+<h2 class="title" >Uploads</h2>
+<div class="content-msg" style="width:30vw !important;" mat-dialog-content>Attachment</div>
+
+  <input type="file"   (change)="uploadFile($event)"
+                                            #fileInput [(ngModel)]="inputFile" accept={{acceptFiles}}>
+
+<div mat-dialog-actions class="row pt-24">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-block btn-primary" [disabled]="isFile" (click)="upload()">upload</button>
+    </div>
+    
+    
+
+    <div class="col-md-6">
+        <button type="button" class="btn btn-block btn-secondary" (click)="dialogRef.close(false)">Close</button>
+    </div>
+</div>

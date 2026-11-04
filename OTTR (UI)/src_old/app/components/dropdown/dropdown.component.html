@@ -1,0 +1,5 @@
+<div *ngIf="this.dropDownData!={} && this.dropDownData!=null">
+<select class="form-control" [(ngModel)]="selectedValue" [disabled] = "!isEditable" name="dropdown" (ngModelChange)="ValueChange($event)">
+    <option *ngFor="let option of dropDownData | keyvalue" [value]="option.key">{{option.value}}</option>
+</select>
+</div>

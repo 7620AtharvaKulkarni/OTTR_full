@@ -1,0 +1,93 @@
+<mat-toolbar class="toolbar-format magrin-auto padding-left10">
+	<img src="assets/images/logos/Honeywell_Logo_RGB_Red.png" class="img-brand">
+	<span class="brand-name">Deliverable Log + OTTR + Customer Log</span>
+	<div class="right-nav">
+		<span class="nav-links"></span>
+		<span class="cursor-pointer" (click)="openDefectForm()">
+            <span class="icon-size-defect"><i *ngIf="!isIEOrEdge" class="icon icon-tools" data-toggle="tooltip"
+                    data-placement="bottom" title="Defect/Enhancement Logger Tool"></i><i *ngIf="isIEOrEdge"
+                    class="icon icon-tools" data-toggle="tooltip" data-placement="bottom"
+                    title="Defect/Enhancement Logger Tool"></i> </span>
+        </span>
+
+
+		<span class="cursor-pointer" (click)="openFeedbackForm()">
+            <span class="icon-size-feedback"><i *ngIf="!isIEOrEdge" class="icon icon-edit-circled" data-toggle="tooltip"
+                    data-placement="bottom" title="Feedback Form Link"></i><i *ngIf="isIEOrEdge"
+                    class="icon icon-edit-circled" data-toggle="tooltip" data-placement="bottom"
+                    title="Feedback Form Link"></i> </span>
+        </span>
+
+        <span class="cursor-pointer" (click)="downloadHelpFile()">
+            <span class="icon-size"><i *ngIf="!isIEOrEdge" class="icon icon-help" data-toggle="tooltip"
+                    data-placement="bottom" title="Download help file"></i><i *ngIf="isIEOrEdge"
+                    class="icon icon-badge-help" data-toggle="tooltip" data-placement="bottom"
+                    title="Download help file"></i> </span>
+        </span>
+
+		<span class="notification-format">
+		</span>
+		
+		<span class="profile-initial color-white" [matMenuTriggerFor]="menu"
+			(mouseenter)="openMyMenu()">{{userInitial}}</span>
+		<mat-menu #menu="matMenu" overlapTrigger="false">
+			<div (mouseleave)="closeMyMenu()" class="dropDownMenu">
+				<ul>
+					<li><a href="" class="greyC"> {{userName}}</a> </li>
+					<li><a href="" class="whiteC">{{buisnessTitle}}</a> </li>
+				</ul>
+				<div class="logout">
+					<button class="btn btn-secondary logoutBtn" (click)="logOut()">Sign Out</button>
+				</div>
+			</div>
+		</mat-menu>
+	</div>
+</mat-toolbar>
+<mat-toolbar class="sub-toolbar color-white magrin-auto padding-left10">
+	<span *ngIf="EditRole">
+		<button mat-raised-button [disabled]="isDisable" class="create-button" (click)="addNewRecord()">Create</button>
+	</span>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<span>
+		<mat-label>GES LOB</mat-label>
+	</span>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<span>
+		<mat-form-field appearance="outline" *ngIf="GESGroups" class="mat-focused" style="height: 5vh !important;">
+
+			<mat-select [(ngModel)]="selectedGESGroup" (ngModelChange)="onSelectGESGroup()">
+				<mat-option value="-1">Select</mat-option>
+				<mat-option value="0">All</mat-option>
+				<mat-option *ngFor="let group of GESGroups" value="{{group.gesGroupId}}">{{group.gesGroupName}}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</span>
+	<div class="button-container row">
+		<div class="gap"></div>
+		<span class="filter">
+			<button mat-raised-button [disabled]="disableFilter" class="create-button" (click)="ClearFilters()">Clear Filters</button>
+		</span> 
+		<span class="download" *ngIf="AdminRole">
+			<a (click)="downloadTemplate()">
+				<button mat-raised-button class="create-button">Download template</button>
+			</a>
+		</span>
+		<span class="upload" *ngIf="AdminRole">
+			<button mat-raised-button class="create-button" (click)="Uploads()">Uploads</button>
+		</span> 
+		<span class="export">
+			<button mat-raised-button class="create-button" [disabled]="isGridEmpty" (click)="exportToExcel()">Export to
+				Excel</button>
+		</span>
+	</div>
+	<div class="version">
+		Version: {{version}}
+	</div>
+
+
+</mat-toolbar>
+<app-ottr-list [userID]="userId" [EditRole]="EditRole" [addRequest]="addRecord" [GESGroupId]="selectedGESGroup"
+	[GESGroupName]="GESGroupName" (gridPopulateEvent)="gridPopulateEvent($event)" 
+	(disableCreateButton)="disableCreateButton($event)" (disableFilter)="disableFilterButton($event)"></app-ottr-list>
+<app-footer></app-footer>

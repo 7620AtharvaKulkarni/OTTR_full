@@ -1,0 +1,24 @@
+.footorBottom{
+	/*position: absolute;*/
+	bottom: 0px;
+	z-index: 99;
+	width: 100%;
+    padding: 25px 0px;
+    font-family: HoneywellSansWeb-Book;
+}
+.footorBottom ul li a{
+color: #d6d6d6!important;
+}
+.footorBottom ul li a:hover{
+color: #fff !important;
+}
+.footorBottom ul{
+   margin-bottom: 0px;
+}
+@media screen and (min-width: 992px){
+  footer ul.list-inline.small li.copyright {
+     float: none; 
+    border-left: none;
+    margin-right: 0;
+}	
+}

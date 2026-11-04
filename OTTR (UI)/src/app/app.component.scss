@@ -1,0 +1,210 @@
+.toolbar-format {
+    height: 70px !important;
+    position: relative;
+    background-image: none;
+    background-color: #fff !important;
+    border-bottom: 1px solid #dfdfdf;
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #ccc;
+    min-height: 50px;
+    border: 1px solid transparent;
+    padding:10px;
+  }
+  
+  .img-brand {
+    height: 56px;
+  }
+  
+  .brand-name {
+    border-left: 1px solid #dfdfdf;
+    font-size: 1.2em;
+    font-family: HoneywellSansWeb-Book;
+    padding-left: 25px;
+    margin-left: 15px;
+    color: #707070;
+    padding-top: 3px;
+  }
+  
+  .right-nav {
+    position: absolute;
+    right: 1%;
+    padding: 10px;
+    font-size: 14px;
+    font-family: HoneywellSansWeb-Bold;
+    display: flex;
+  }
+  
+  .nav-links {
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #707070;
+  }
+  
+  .notification-format {
+    margin-left: 15px;
+    padding-left: 20px;
+    border-left: 1px solid #dfdfdf;
+  }
+  
+  .notification-badge {
+    margin-top: 5px;
+    font-size: 20px;
+    height: auto;
+    width: auto;
+  }
+  
+  .profile-initial {
+    margin-left: 25px;
+    background: #cdcdce;
+    height: 30px;
+    border-radius: 50px;
+    width: 30px;
+    font-size: 13px;
+    padding: 2px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .sub-toolbar {
+    background: #3a3838 !important;
+    height: 46px !important;
+    font-family: SansBold !important;
+    font-size: 14px !important;
+  }
+
+  .mat-toolbar, .mat-toolbar h1, .mat-toolbar h2, .mat-toolbar h3, .mat-toolbar h4, .mat-toolbar h5, .mat-toolbar h6 {
+    font-family: SansMedium !important;
+    letter-spacing: normal;
+    margin: 0;
+}
+.btn {
+  background-image: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 13px 36px !important;
+  text-shadow: none;
+  margin: 0px 0 !important;
+  font-family: HoneywellSansWeb-Medium;
+}
+.dropDownMenu{      
+  border-color: #000;
+   background-color: #303030;
+   color: #fff;
+   padding: 15px 0px 20px;
+
+}
+.dropDownMenu ul {
+   margin-bottom: 0;
+   padding: 0;
+   border-bottom: 1px solid black;
+   margin-bottom: 15px;
+}
+
+.dropDownMenu ul li{
+  list-style-type: none;
+}
+.dropDownMenu ul li a{
+   color: white;
+   padding: 5px 15px !important;   
+   width: 100%;
+   display: inline-block;    
+   margin-bottom: 5px;
+}
+.dropDownMenu ul li a.greyC{
+   color: #dfdfdf!important;
+    font-size: 14.5px;
+}
+.dropDownMenu ul li a.whiteC{
+   color: #fff  !important;
+    font-size: 12px;
+}
+
+.logout{
+ padding: 0px 15px;
+}
+.logoutBtn{
+   background-image: none;
+   border-radius: 0;
+   box-shadow: none;
+   padding: 8px 36px !important;
+   text-shadow: none;
+   margin: 0px 0 !important;
+   font-family: HoneywellSansWeb-Medium;
+   width: 100%;
+   border: 1px solid #fff;
+   color: #fff;
+   background-color: transparent;
+   text-transform: uppercase;
+}
+.noti-icon{
+  font-size: 28px;
+  font-style: unset;
+}
+.badge.critical:after {
+  background-color: #ee3124;
+  margin-top: 0px;
+  position: relative;
+  top: -12px;
+}
+
+.create-button{
+  padding: 10px 30px !important;
+}
+
+.version{
+  font-size: 10px;
+  color: #fff;
+  text-align: right;
+  float: right;
+  width: 10%;
+}
+
+.button-container{
+    width: 90%;
+    display: inherit;
+    float: right;
+}
+
+.gap{
+  width: 14%;
+}
+
+.export{
+  position: absolute;
+  left: 77vw;
+  top: 69px;
+}
+
+.download{
+  position: absolute;
+  top: 69px;
+  left: 50.5vw;
+}
+.upload{
+  position: absolute;
+  left: 67vw;
+  top: 69px;
+}
+
+.icon-size {
+  font-size: 30px;
+  margin-right: 10px;
+  font-style: normal !important;
+}
+.icon-size-feedback {
+  font-size: 41px;
+  margin-right: 10px;
+}
+
+
+.icon-size-defect{
+  font-size: 35px;
+  margin-right: 10px;
+}
+
+.filter{
+  position: absolute;
+  left: 38vw;
+  top: 69px;
+}

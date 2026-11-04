@@ -1,0 +1,9 @@
+export class Pole {
+    public poleID:number;
+    public poleName:string;
+    public isActive:boolean;
+    public createdBy:string;
+    public createdOn: Date
+    public modifiedBy: string;
+    public modifiedOn: Date;
+}

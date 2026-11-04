@@ -1,0 +1,14 @@
+<!-- <input [ngModel]="theDate | date:'yyyy-MM-dd'" (ngModelChange)="theDate = $event" type="date" name="theDate" /> -->
+<input matInput [matDatepicker]='picker' disabled [(ngModel)]='value' style="width:7vw;" >
+
+
+<button class="align"  mat-icon-button color="warn" matTooltip="Cancel" [disabled] = "!isEditable"  style="height: 40px;width: 24px;"   *ngIf="label==='actualDate'||label==='baseDate'||label==='planDate'" (click)="resetForm()">
+  <mat-icon >clear</mat-icon>
+</button>
+
+<mat-datepicker-toggle matSuffix [for]='picker' style="position: fixed;"></mat-datepicker-toggle>
+
+
+
+<mat-datepicker #picker [disabled] = "!isEditable" (selectedChanged)='onSelectChange()'></mat-datepicker>
+

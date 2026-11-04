@@ -1,0 +1,9 @@
+<button class="align" mat-icon-button color="primary" matTooltip="Save" *ngIf="label==='Save'" [disabled]="isDisabled" (click)="onClick($event)">
+  <mat-icon>done</mat-icon>
+</button>
+<button class="align" mat-icon-button color="warn" matTooltip="Cancel"  *ngIf="label==='Cancel' && isVisible" [disabled]="isDisabled" (click)="onClick($event)">
+  <mat-icon>clear</mat-icon>
+</button>
+<button class="align" mat-icon-button color="primary" matTooltip="Copy" *ngIf="label==='Copy'" [disabled]="isDisabled" (click)="onClick($event)">
+  <i class="icon icon-document"></i>
+</button>

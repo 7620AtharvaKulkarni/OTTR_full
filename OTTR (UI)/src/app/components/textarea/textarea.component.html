@@ -1,0 +1,29 @@
+<div class="row" *ngIf="this.textAreaParams.colDef.field=='gespmEID' || this.textAreaParams.colDef.field=='fopmId' || this.textAreaParams.colDef.field=='gesResourceId'">
+  <div [ngClass]="{'col-md-8':this.textAreaParams.colDef.field!='fopmId','col-md-10':this.textAreaParams.colDef.field=='fopmId'}">
+    <textarea #textArea (keydown)="keydownEvent($event)" (keypress)="keyPressedEvent($event)" (paste)="pasteEvent($event)"
+      [disabled]="!isEditable" [(ngModel)]="data" (ngModelChange)="valueChange($event)" [ngClass]="{'form-control gespm':this.textAreaParams.colDef.field!='fopmId','form-control fopm':this.textAreaParams.colDef.field=='fopmId'}"
+      rows="3" name="textArea" [maxlength]="maxlength"></textarea>
+  </div>
+  <div class="col-md-2">
+    <button class="align" *ngIf="this.textAreaParams.colDef.field=='gespmEID'" mat-icon-button color="warn"
+      matTooltip="Cancel" [disabled]="!isEditable" (click)="clearGESPM()">
+      <mat-icon>clear</mat-icon>
+    </button>
+    <button class="align fopmbuttons" *ngIf="this.textAreaParams.colDef.field=='fopmId'" mat-icon-button color="primary"
+      matTooltip="Search" [disabled]="!isEditable" (click)="searchFOPM()">
+      <mat-icon>search</mat-icon>
+    </button>
+    <button class="align  fopmbuttons" *ngIf="this.textAreaParams.colDef.field=='fopmId'" mat-icon-button color="warn"
+      matTooltip="Cancel" [disabled]="!isEditable" (click)="clearFOPM()">
+      <mat-icon>clear</mat-icon>
+    </button>
+  </div>
+  <button class="gesResource" *ngIf="this.textAreaParams.colDef.field=='gesResourceId'" mat-icon-button color="warn"
+    matTooltip="Cancel" [disabled]="!isEditable" (click)="clearGESResource()">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+
+<textarea #textArea (keypress)="keyPressedEvent($event)" (paste)="pasteEvent($event)" [disabled]="!isEditable"
+  [(ngModel)]="data" (ngModelChange)="valueChange($event)" class="form-control" rows="3" name="textArea"
+  [maxlength]="maxlength"></textarea>

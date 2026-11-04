@@ -1,0 +1,477 @@
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+
+
+.ag-theme-alpine {
+    @include ag-theme-alpine();
+}
+.Row-Highliter {
+  background-color: #C0C0C0 !important;
+}
+
+i {
+  font-style: normal !important;
+}
+
+html, body {
+  height: 100%;
+  background: #f2f2f2;
+}
+body { 
+  margin: 0; 
+  font-family: SansMedium;
+  font-size: 12px; 
+}
+
+
+// .ag-theme-alpine .ag-filter-condition-operator {
+//   height: 17px;
+//   background: lightblue;
+//   padding: 15px;
+//   border: 1px solid gainsboro;
+//   border-radius: 5px;
+// }
+
+// .ag-theme-alpine .ag-radio-button-input-wrapper {
+//   display: none;
+// }
+
+
+.mandatoryColumn:before{
+  content: "* " !important;
+  color: red !important;
+  font-size: large !important;
+  margin-bottom: 7px;
+}
+.ag-header-cell-label {
+  font-family: SansBold;
+  font-size: 12px;
+}
+.ag-header-container {
+  font-size: 14px;
+  // background: #707070;
+  text-transform: uppercase;
+  // color: #fff;
+}
+@font-face {
+  font-family: "SansLight";
+  src: url("./assets/fonts/sans/HoneywellSansTT-Light.ttf");
+}
+
+@font-face {
+  font-family: "SansBold";
+  src: url("./assets/fonts/sans/HoneywellSansTT-Bold.ttf");
+}
+
+@font-face {
+  font-family: "SansMedium";
+  src: url("./assets/fonts/sans/HoneywellSansTT-Medium.ttf");
+}
+
+@font-face {
+  font-family: "SansBook";
+  src: url("./assets/fonts/sans/HoneywellSansTT-Book.ttf");
+}
+.header1 {
+  font-family: "SansLight";
+  color: #303030;
+  font-size: 38px;
+}
+
+.header2 {
+  font-family: "SansBold";
+  color: #303030;
+  font-size: 32px;
+}
+
+.header3 {
+  font-family: "SansMedium";
+  color: #303030;
+  font-size: 22px;
+}
+
+.header4 {
+  font-family: "SansBold";
+  color: #303030;
+  font-size: 16px;
+}
+
+.page-title {
+  font-family: "SansBook";
+  color: #303030;
+  font-size: 38px;
+}
+
+.body-copy {
+  font-family: "SansBook";
+  color: #303030;
+  font-size: 16px;
+}
+
+.label {
+  font-family: "SansBook";
+  color: #707070;
+  font-size: 14px;
+}
+
+.footer {
+  font-family: "SansMedium";
+  color: #707070;
+  font-size: 14px;
+}
+@media screen and (max-width: 768px) {
+  .header1 {
+    font-size: 28px;
+  }
+
+  .header2 {
+    font-size: 23px;
+  }
+
+  .header3 {
+    font-size: 18px;
+  }
+
+  .header4 {
+    font-size: 16px;
+  }
+
+  .page-title {
+    font-size: 32px;
+  }
+
+  .body-copy {
+    font-size: 16px;
+  }
+
+  .label {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+.border-medium-blue-1 {
+  border: 1px solid #1792e5;
+}
+
+.border-medium-blue-2 {
+  border: 2px solid #1792e5;
+}
+
+.font-weight700 {
+  font-weight: 700;
+}
+
+.font-weight500 {
+  font-weight: 500;
+}
+
+.padding-top5 {
+  padding-top: 5px;
+}
+
+.padding-top10 {
+  padding-top: 10px;
+}
+
+.padding-top20 {
+  padding-top: 20px;
+}
+
+.padding-bottom5 {
+  padding-bottom: 5px;
+}
+
+.padding-bottom10 {
+  padding-bottom: 10px;
+}
+
+.padding-bottom20 {
+  padding-bottom: 20px;
+}
+
+.padding-left5 {
+  padding-left: 5px;
+}
+
+.padding-left10 {
+  padding-left: 10px;
+}
+
+.padding-right5 {
+  padding-right: 5px;
+}
+
+.padding-right10 {
+  padding-right: 10px;
+}
+
+.padding-right20 {
+  padding-right: 20px;
+}
+
+.font-size30 {
+  font-size: 30px;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.icon-size {
+  width: 20pt;
+  height: 20pt;
+}
+
+.margin-right10 {
+  margin-right: 10px;
+}
+
+.margin-right20 {
+  margin-right: 20px;
+}
+
+.margin-left10 {
+  margin-left: 10px;
+}
+
+.margin-left20 {
+  margin-left: 20px;
+}
+
+.margin-left-25 {
+  margin-left: -25px;
+}
+
+.magrin-auto {
+  margin: auto;
+}
+
+.display-flex {
+  display: flex;
+}
+
+/*font color and background color */
+.bg-medium-blue {
+  background-color: #1792e5;
+}
+
+.color-white {
+  color: white;
+}
+
+.bg-gray {
+  background-color: #303030;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content {
+  padding: 25px;
+  background: #f2f2f2;
+}
+
+#dashboard .mat-list-item-content {
+  padding: 0px;
+  display: block;
+}
+
+#dashboard .owl-theme {
+  display: grid !important;
+}
+
+.mat-tree {
+  font-family: SansMedium;
+}
+
+.mat-form-field {
+  font-family: SansBold;
+}
+
+.mat-select {
+  font-family: SansMedium;
+}
+
+.mat-option {
+  font-family: SansMedium;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 0px;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-25{
+  width:25%;
+}
+
+
+.mat-raised-button[disabled] {
+  cursor: not-allowed !important;
+  background-color: #d6d6d6 !important;
+  color: #fff !important;
+}
+
+.mat-raised-button {
+  background-color: #1792E5 !important;
+  border: 1px solid transparent !important;
+  display: flex !important;
+  transition: background-color .5s ease !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  padding: 20px 48px !important;
+  margin: 10px 0 !important;
+  letter-spacing: .05em !important;
+  line-height: 8px !important;
+  font-family: HoneywellSansWeb-Bold !important;
+}
+.mat-badge-warn .mat-badge-content {
+  background: #ee3124;
+  font-family: HoneywellSansWeb-Bold;
+}
+
+
+.mat-slide-toggle-bar {
+  width: 66px !important;
+  height: 32px !important;
+  border-radius: 26px !important;
+}
+
+.mat-slide-toggle-thumb-container {
+  top: 0px !important;
+}
+
+.mat-slide-toggle-thumb {
+  height: 30px !important;
+  width: 30px !important;
+}
+
+.mat-slide-toggle-content {
+  font-family: SansMedium;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  color: #333f5e !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+  transform: translate3d(36px, 0, 0) !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: #1792E5 !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #fff !important;
+}
+
+.position {
+  display: flex;
+}
+
+.label-position {
+  margin-right: 20px;
+}
+
+.mat-radio-button~.mat-radio-button {
+  margin-left: 16px;
+}
+
+.grid-height {
+  height: 565px;
+}
+
+.toast-container {
+  font-family: SansBold !important;
+}
+
+mat-dialog-container {
+  border-radius: 0px !important;
+  padding: 24px 35px !important;
+  box-shadow: none !important;
+}
+.magrin-auto {
+    margin: auto;
+  }
+  
+  .padding-left10 {
+    padding-left: 10px;
+  }
+  
+  .color-white {
+    color: white;
+  }
+
+  .ag-header-cell-text {
+    white-space: initial !important;
+  }
+  .magrin-auto {
+    margin: auto;
+  }
+  .color-white {
+    color: white;
+  }
+  .padding-left10 {
+    padding-left: 10px;
+  }
+  .mat-menu-panel {
+    min-width: 112px;
+    max-width: 280px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100vh - 48px);
+    border-radius: 4px;
+    outline: 0;
+    min-height: 44px !important;
+    margin-top: 16px;
+  }
+  .mat-menu-content:not(:empty) {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  body {
+    height: 100%;
+    background: #f2f2f2;
+  }
+  .ErrorMessages{
+      position: fixed !important;
+      right: 22px !important;
+      top: 22px !important;
+  } 
+  .toast-container .ngx-toastr {
+    display: contents !important;
+  }
+  
+  .ag-theme-alpine input[class^=ag-][type=button]:focus, .ag-theme-alpine button:focus{
+    box-shadow: none !important;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    height: 35px !important;
+    padding-top: 5px !important;
+  }
+
+  .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 5px;
+  }
+
+  .mat-form-field-appearance-outline .mat-select-arrow-wrapper {
+    transform: translateY(-2%) !important;
+}
+
