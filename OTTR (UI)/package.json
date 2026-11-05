@@ -6,8 +6,9 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 4200 -o",
-    "start:legacy": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve --port 4200 -o",
+    "start": "ng serve -o",
+    "start:alt": "ng serve --port 4300 -o",
+    "start:legacy": "node --openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve -o",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
